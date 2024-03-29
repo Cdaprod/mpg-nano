@@ -28,29 +28,30 @@
 /**
  * Selector switch polling and MPG LED control
  */
+
 #ifndef _APP_SWITCH_H_
 #define _APP_SWITCH_H_
 
 #include <stdbool.h>
 
-
 /**
  * Enumeration of axis select switch positions.
  */
 typedef enum {
-    APP_SWITCH_AXIS_OFF,
-    APP_SWITCH_AXIS_X,
-    APP_SWITCH_AXIS_Y,
-    APP_SWITCH_AXIS_Z,
-    APP_SWITCH_AXIS_4
+    APP_SWITCH_AXIS_X = 0,
+    APP_SWITCH_AXIS_Y = 1,
+    APP_SWITCH_AXIS_Z = 2,
+    APP_SWITCH_AXIS_4 = 3,
+    APP_SWITCH_AXIS_5 = 4,
+    APP_SWITCH_AXIS_6 = 5,
+    APP_SWITCH_AXIS_NONE = 7
 } app_switch_axis_t;
-
 
 /**
  * Enumeration of step select switch positions.
  *
  * Uses:
- *   TIMER1
+ * TIMER1
  */
 typedef enum {
     APP_SWITCH_STEP_X1,
@@ -59,27 +60,23 @@ typedef enum {
     APP_SWITCH_STEP_X1000 // <-- selected if MPG's side button is held down
 } app_switch_step_t;
 
-
 /**
  * Must be called once with interrupts globally disabled, before main loop begins.
  */
 void app_switch_init(void);
 
-
 /**
- * @return  True if e-stop switch is pressed.
+ * @return True if e-stop switch is pressed.
  */
 bool app_switch_e_stop(void);
 
-
 /**
- * @return  Axis select switch position.
+ * @return Axis select switch position.
  */
 app_switch_axis_t app_switch_axis(void);
 
-
 /**
- * @return  Step select switch position.
+ * @return Step select switch position.
  */
 app_switch_step_t app_switch_step(void);
 

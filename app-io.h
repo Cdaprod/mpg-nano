@@ -31,45 +31,43 @@
 #include <avr/io.h>
 
 // Port B pin assignments
-#define APP_IO_B_AXIS_Z         0
-#define APP_IO_B_AXIS_4         1
-#define APP_IO_B_NANO_LED       5
+#define APP_IO_B_AXIS_Z    0
+#define APP_IO_B_AXIS_4    1
+#define APP_IO_B_NANO_LED  5
 
-#define APP_IO_B_PORT_INIT      ((1 << 7) | (1 << 6) | (1 << 4) | (1 << 3) | (1 << 2) | \
-                                (1 << APP_IO_B_AXIS_Z) | (1 << APP_IO_B_AXIS_4))
+#define APP_IO_B_PORT_INIT ((1 << 7) | (1 << 6) | (1 << 4) | (1 << 3) | (1 << 2) | \
+                            (1 << APP_IO_B_AXIS_Z) | (1 << APP_IO_B_AXIS_4))
 
-#define APP_IO_B_DDRB_INIT      (1 << APP_IO_B_NANO_LED)
-
+#define APP_IO_B_DDRB_INIT (1 << APP_IO_B_NANO_LED)
 
 // Port C pin assignments
-#define APP_IO_C_ENC_AP         0
-#define APP_IO_C_ENC_AN         1
-#define APP_IO_C_ENC_BP         2
-#define APP_IO_C_ENC_BN         3
-#define APP_IO_C_AXIS_X         4
-#define APP_IO_C_AXIS_Y         5
+#define APP_IO_C_ENC_AP    0
+#define APP_IO_C_ENC_AN    1
+#define APP_IO_C_ENC_BP    2
+#define APP_IO_C_ENC_BN    3
+#define APP_IO_C_AXIS_X    4
+#define APP_IO_C_AXIS_Y    5
 
-
-#define APP_IO_C_PORT_INIT      ((1 << APP_IO_C_AXIS_X) | (1 << APP_IO_C_AXIS_Y))
-
-#define APP_IO_C_DDRC_INIT      0
-
+#define APP_IO_C_PORT_INIT ((1 << APP_IO_C_AXIS_X) | (1 << APP_IO_C_AXIS_Y))
+#define APP_IO_C_DDRC_INIT 0
 
 // Port D pin assignments
-#define APP_IO_D_RXD            0
-#define APP_IO_D_TXD            1
-#define APP_IO_D_X1             2
-#define APP_IO_D_X10            3
-#define APP_IO_D_X100           4
-#define APP_IO_D_MPG_LED        5
-#define APP_IO_D_ESTOP          6
-#define APP_IO_D_RAPID          7
+#define APP_IO_D_RXD       0
+#define APP_IO_D_TXD       1
+#define APP_IO_D_X1        2
+#define APP_IO_D_X10       3
+#define APP_IO_D_X100      4
+#define APP_IO_D_MPG_LED   5
+#define APP_IO_D_ESTOP     6
+#define APP_IO_D_RAPID     7
+#define APP_IO_D_AXIS_5    10
+#define APP_IO_D_AXIS_6    11
 
-#define APP_IO_D_PORT_INIT      ((1 << APP_IO_D_TXD) | (1 << APP_IO_D_X1) | (1 << APP_IO_D_X10) | \
-                                (1 << APP_IO_D_X100) | (1 << APP_IO_D_ESTOP) | (1 << APP_IO_D_RAPID))
+#define APP_IO_D_PORT_INIT ((1 << APP_IO_D_TXD) | (1 << APP_IO_D_X1) | (1 << APP_IO_D_X10) | \
+                            (1 << APP_IO_D_X100) | (1 << APP_IO_D_ESTOP) | (1 << APP_IO_D_RAPID) | \
+                            (1 << APP_IO_D_AXIS_5) | (1 << APP_IO_D_AXIS_6))
 
-#define APP_IO_D_DDRD_INIT      (1 << APP_IO_D_MPG_LED)
-
+#define APP_IO_D_DDRD_INIT (1 << APP_IO_D_MPG_LED)
 
 /**
  * Sets GPIO pin initial states, pull-ups and directions.

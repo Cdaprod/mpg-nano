@@ -1,4 +1,60 @@
-# MPG-Nano
+# Cdaprod's Updated README for MPG-Nano 6-Axis Pendant Wiring Pinout
+
+This document provides the updated wiring pinout for connecting a modified 6-axis Chinese MPG pendant to an Arduino Nano running the MPG-Nano firmware.
+
+## Pendant Modification
+
+The firmware supports an optional modification to the pendant's internal wiring such that the side button acts as an x1000 'rapid mode' selector instead of a pendant enable button. Please refer to the original README.md file for detailed instructions on how to perform this modification.
+
+## Arduino Nano Pinout
+
+The modified 6-axis pendant should be connected to the Arduino Nano's pins as follows:
+
+| Wire Color   | Arduino Pin | Description    |
+|--------------|-------------|----------------|
+| Orange/Black | GND         | Switch Common  |
+| Gray         | D2          | x1 Select      |
+| Gray/Black   | D3          | x10 Select     |
+| Orange       | D4          | x100 Select    |
+| Green/Black  | D5          | LED+           |
+| Blue         | D6          | E-Stop         |
+| Blue/Black   | D7          | Rapid Select   |
+| Brown        | D8          | Z Select       |
+| Brown/Black  | D9          | 4 Select       |
+| Red/Black    | D10         | 5 Select       |
+| Pink         | D11         | 6 Select       |
+| Green        | A0          | Encoder A+     |
+| Violet       | A1          | Encoder A-     |
+| White        | A2          | Encoder B+     |
+| Violet/Black | A3          | Encoder B-     |
+| Yellow       | A4          | X Select       |
+| Yellow/Black | A5          | Y Select       |
+| Red          | +5V         | Encoder +5V    |
+| Black        | GND         | Encoder GND    |
+| White/Black  | GND         | LED-           |
+| Pink/Black   | N/C         | Not Connected  |
+| Orange/White | N/C         | Not Connected  |
+| Blue/White   | N/C         | Not Connected  |
+| Gray/White   | N/C         | Not Connected  |
+
+## Important Notes
+
+- If the pendant has not been modified for 'rapid mode', the Blue/Black wire must be connected to GND instead of D7.
+- The Pink/Black, Orange/White, Blue/White, and Gray/White wires are not used in this configuration and should be left unconnected (N/C).
+- Ensure that the firmware has been updated to support the additional axis selections (5 and 6) before connecting the pendant to the Arduino Nano.
+
+## Testing
+
+After connecting the pendant to the Arduino Nano according to the updated pinout, thoroughly test the functionality to ensure that:
+
+1. Axis selection works correctly for all 6 axes (X, Y, Z, 4, 5, and 6).
+2. Step size changes (x1, x10, x100, and x1000 'rapid mode') are detected correctly.
+3. The E-Stop button functions as expected.
+4. Encoder counts are accurately reported for all axes.
+
+If you encounter any issues or have questions about the wiring or firmware, please refer to the original README.md file or contact the project maintainer for assistance.
+
+# Original README for MPG-Nano
 Firmware and UCCNC plugin for Arduino Nano based serial-over-USB interface for modified 4-axis Chinese
 MPG pendant.
 <p align="center"><img src="./pendant.jpg" width=150 /></p>

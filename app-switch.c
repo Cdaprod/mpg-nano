@@ -85,18 +85,20 @@ ISR(TIMER1_OVF_vect) {
         flash_rate = APP_SELECT_FAST_FLASH;
     }
 
-    if ( !(portc_bits & (1 << APP_IO_C_AXIS_X)) ) {
+    if (!(portc_bits & (1 << APP_IO_C_AXIS_X))) {
         m_axis = APP_SWITCH_AXIS_X;
-    } else if ( !(portc_bits & (1 << APP_IO_C_AXIS_Y)) ) {
+    } else if (!(portc_bits & (1 << APP_IO_C_AXIS_Y))) {
         m_axis = APP_SWITCH_AXIS_Y;
-    } else if ( !(portb_bits & (1 << APP_IO_B_AXIS_Z)) ) {
+    } else if (!(portb_bits & (1 << APP_IO_B_AXIS_Z))) {
         m_axis = APP_SWITCH_AXIS_Z;
-    } else if ( !(portb_bits & (1 << APP_IO_B_AXIS_4)) ) {
+    } else if (!(portb_bits & (1 << APP_IO_B_AXIS_4))) {
         m_axis = APP_SWITCH_AXIS_4;
+    } else if (!(portd_bits & (1 << APP_IO_D_AXIS_5))) { // Add this condition for axis 5
+        m_axis = APP_SWITCH_AXIS_5;
+    } else if (!(portd_bits & (1 << APP_IO_D_AXIS_6))) { // Add this condition for axis 6
+        m_axis = APP_SWITCH_AXIS_6;
     } else {
-        m_axis = APP_SWITCH_AXIS_OFF;
-
-        // force MPG LED off if no axis is selected
+        m_axis = APP_SWITCH_AXIS_NONE;
         flash_rate = 0;
     }
 
@@ -122,22 +124,16 @@ bool app_switch_e_stop(void) {
     return m_e_stop_state;
 }
 
-
 app_switch_axis_t app_switch_axis(void) {
     return (app_switch_axis_t) m_axis;
 }
-
 
 app_switch_step_t app_switch_step(void) {
     return (app_switch_step_t) m_step;
 }
 
-
 void app_switch_init(void) {
-    // enable TIMER1
     power_timer1_enable();
-
-    // configure TIMER1 to overflow at ~30.5Hz
     TIFR1 = (1 << TOV1);
     TIMSK1 = (1 << TOIE1);
     TCCR1B = (1 << CS11);
