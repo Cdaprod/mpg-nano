@@ -1,5 +1,7 @@
 # Cdaprod's Updated README for MPG-Nano 6-Axis Pendant Wiring Pinout
 
+I always like to mention that I rarely use C so please take everything with a grain of salt  
+
 This document provides the updated wiring pinout for connecting a modified 6-axis Chinese MPG pendant to an Arduino Nano running the MPG-Nano firmware.
 
 ## Pendant Modification
